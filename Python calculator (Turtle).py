@@ -1,6 +1,7 @@
 import turtle
+#from tkinter import *
 
-print("----------------------------- STILL IN PROTOTYPE ------------------------------")
+print("----------------------------- STILL IS PROTOTYPE ------------------------------")
 print("-------------------------------------------------------------------------------")
 
 #------------------------
@@ -34,8 +35,14 @@ eight.hideturtle()
 nine = turtle.Turtle()
 nine.hideturtle()
 
+era = turtle.Turtle()
+era.hideturtle()
+
 ten = turtle.Turtle()
 ten.hideturtle()
+
+eq = turtle.Turtle()
+eq.hideturtle()
 
 plus = turtle.Turtle()
 plus.hideturtle()
@@ -48,6 +55,16 @@ multiply.hideturtle()
 
 divide = turtle.Turtle()
 divide.hideturtle()
+
+sin = turtle.Turtle()
+sin.hideturtle()
+
+cos = turtle.Turtle()
+cos.hideturtle()
+
+tan = turtle.Turtle()
+tan.hideturtle()
+
 
 #------------------------
 
@@ -65,7 +82,7 @@ t.forward(15)
 t.right(90)
 t.down()
 for i in range(2):
-   t.forward(270 + 30)
+   t.forward(270 + 30 + 70)
    t.right(45)
    t.forward(10)
    t.right(45)
@@ -129,11 +146,20 @@ nine.width(3)
 nine.speed(0)
 nine.down()
 
+era.up()
+era.width(3)
+era.speed(0)
+era.down()
 
 ten.up()
 ten.width(3)
 ten.speed(0)
 ten.down()
+
+eq.up()
+eq.width(3)
+eq.speed(0)
+eq.down()
 
 plus.up()
 plus.width(3)
@@ -155,6 +181,21 @@ divide.width(3)
 divide.speed(0)
 divide.down()
 
+sin.up()
+sin.width(3)
+sin.speed(0)
+sin.down()
+
+cos.up()
+cos.width(3)
+cos.speed(0)
+cos.down()
+
+tan.up()
+tan.width(3)
+tan.speed(0)
+tan.down()
+
 #-------------------------------------------------#
 
 #-------------------SCREEN SAVES-------------------#
@@ -166,6 +207,14 @@ l.hideturtle()
 l.up()
 l.goto(-108.0, 125.0)
 l.down()
+
+a = turtle.Turtle()
+a.speed(0)
+a.width(5)
+a.hideturtle()
+a.up()
+a.goto(-108.0, 125.0)
+a.down()
 
 def letter_one():
    l.write("1",font=("Courier",40,'bold'))
@@ -252,7 +301,66 @@ def letter_divide():
    l.forward(30)
    l.down()
 
+def letter_sin():
+   l.write("sin",font=("Courier",40,'bold'))
+   l.up()
+   l.forward(100)
+   l.down()
+
+def letter_cos():
+   l.write("cos",font=("Courier",40,'bold'))
+   l.up()
+   l.forward(100)
+   l.down()
+
+def letter_tan():
+   l.write("tan",font=("Courier",40,'bold'))
+   l.up()
+   l.forward(100)
+   l.down()
+
 #-------------------SCREEN SAVES-------------------#
+
+
+def btn_click(item):
+    global expression
+    expression = expression + str(item)
+    #print(expression)
+# 'bt_clear' function :This is used to clear 
+# the input field
+
+def bt_clear(): 
+    global expression 
+    expression = "" 
+    l.clear()
+    a.clear()
+    l.up()
+    l.goto(-108.0, 125.0)
+    l.down()
+
+    
+# 'bt_equal':This method calculates the expression 
+# present in input field
+ 
+def bt_equal():
+    global expression
+    result = str(eval(expression)) # 'eval':This function is used to evaluates the string expression directly
+    print(result)
+    expression = result
+    a.clear()
+    a.up()
+    a.goto(190 , 55.0) 
+    #a.forward(350)
+    #a.right(90)
+    #a.forward(70)
+    #a.right(-90)
+    a.down()
+    a.write(result,font=("Courier",30,'bold'))
+    a.up()
+    a.forward(30)
+    a.down()
+    
+expression = ""
 
 #-------------------KEYBOARD DEFS-------------------#  
    
@@ -445,6 +553,28 @@ nine.write("9",font=("Courier",25,'bold'))
 nine.hideturtle()
 #-------------- NINE --------------#
 
+#-------------- ERASE --------------#
+era.up()
+era.forward(-90)
+era.right(90)
+era.forward(210-3)
+era.right(-90)
+era.down()
+for i in range(4):
+    era.forward(50)
+    era.right(45)
+    era.forward(5)
+    era.right(45)
+
+era.up()
+era.right(90)
+era.forward(50)
+era.left(90)
+era.forward(17)
+era.write("C",font=("Courier",25,'bold'))
+era.hideturtle()
+#-------------- ERASE --------------#
+
 #-------------- TEN --------------#
 ten.up()
 ten.forward(-20)
@@ -466,6 +596,30 @@ ten.forward(17)
 ten.write("0",font=("Courier",25,'bold'))
 ten.hideturtle()
 #-------------- TEN --------------#
+
+#-------------- EQUAL --------------#
+
+eq.up()
+eq.forward(50)
+eq.right(90)
+eq.forward(210-3)
+eq.right(-90)
+eq.down()
+for i in range(4):
+    eq.forward(50)
+    eq.right(45)
+    eq.forward(5)
+    eq.right(45)
+
+eq.up()
+eq.right(90)
+eq.forward(50)
+eq.left(90)
+eq.forward(17)
+eq.write("=",font=("Courier",25,'bold'))
+eq.hideturtle()
+
+#-------------- EQUAL --------------#
 
 #-------------- PLUS --------------#
 plus.up()
@@ -552,6 +706,69 @@ divide.write("÷",font=("Courier",25,'bold'))
 divide.hideturtle()
 #-------------- DIVIDE --------------#
 
+#-------------- SIN --------------#
+sin.up()
+sin.forward(140 + 70)
+sin.down()
+for i in range(4):
+    sin.forward(50)
+    sin.right(45)
+    sin.forward(5)
+    sin.right(45)
+
+sin.up()
+sin.right(90)
+sin.forward(45)
+sin.left(90)
+sin.forward(3)
+sin.write("sin",font=("Courier",20,'bold'))
+sin.hideturtle()
+#-------------- SIN --------------#
+
+#-------------- COS --------------#
+cos.up()
+cos.forward(140 + 70)
+cos.right(90)
+cos.forward(70-3)
+cos.right(-90)
+cos.down()
+for i in range(4):
+    cos.forward(50)
+    cos.right(45)
+    cos.forward(5)
+    cos.right(45)
+
+cos.up()
+cos.right(90)
+cos.forward(45)
+cos.left(90)
+cos.forward(3)
+cos.write("cos",font=("Courier",20,'bold'))
+cos.hideturtle()
+#-------------- COS --------------#
+
+#-------------- TAN --------------#
+tan.up()
+tan.forward(140 + 70)
+tan.right(90)
+tan.forward(140-3)
+tan.right(-90)
+tan.down()
+for i in range(4):
+    tan.forward(50)
+    tan.right(45)
+    tan.forward(5)
+    tan.right(45)
+
+tan.up()
+tan.right(90)
+tan.forward(45)
+tan.left(90)
+tan.forward(3)
+tan.write("tan",font=("Courier",20,'bold'))
+tan.hideturtle()
+#-------------- TAN --------------#
+
 #-------------------KEYBOARD DEFS-------------------#  
 
 print("U can write now :) ")
@@ -561,75 +778,113 @@ print("-------------------------------------------------------------------------
 def check_button(x,y):
       # ONE
    if (x > -94 and x < -36 and y > -58 and y < -1):
-        print("1")
-        letter_one() 
+        #print("1", end=(" "))
+        letter_one()
+        btn_click(1) 
    
       # TWO
    if (x > -24 and x < 34 and y > -58 and y < -1):
-        print("2")
+        #print("2", end=(" "))
         letter_two()  
+        btn_click(2)
    
       # THREE
    if (x > 46 and x < 105 and y > -58 and y < -1):
-        print("3")
+        #print("3", end=(" "))
         letter_three()
+        btn_click(3)
       
       # FOUR
    if (x > -94 and x < -36 and y > -124 and y < -67):
-        print("4")
+        #print("4", end=(" "))
         letter_four()
+        btn_click(4)
    
       # FIVE
    if (x > -24 and x < 34 and y > -124 and y < -67):
-        print("5")
+        #print("5", end=(" "))
         letter_five()
+        btn_click(5)
    
       # SIX
    if (x > 46 and x < 105 and y > -124 and y < -67):
-        print("6")
+        #print("6", end=(" "))
         letter_six()
+        btn_click(6)
         
       # SEVEN
    if (x > -94 and x < -36 and y > -197 and y < -137):
-        print("7")
+        #print("7", end=(" "))
         letter_seven()
+        btn_click(7)
         
       # EIGHT
    if (x > -24 and x < 34 and y > -197 and y < -137):
-        print("8")
+        #print("8", end=(" "))
         letter_eight()
+        btn_click(8)
         
       # NINE
    if (x > 46 and x < 105 and y > -197 and y < -137):
-        print("9")
+        #print("9", end=(" "))
         letter_nine()
+        btn_click(9)
+
+      # ERASE
+   if (x > -94 and x < -36 and y > -265 and y < -207):
+        #print("=", end=(" "))
+        bt_clear()     
 
       # TEN
    if (x > -24 and x < 34 and y > -265 and y < -207):
-        print("0")
+        #print("0", end=(" "))
         letter_ten()
+        btn_click(0)
+
+      # EQUAL
+   if (x > 46 and x < 105 and y > -265 and y < -207):
+        #print("=", end=(" "))
+        bt_equal()
 
       # PLUS
    if (x > 136 and x < 195 and y > -58 and y < -1):
-        print("+")
+        #print("+", end=(" "))
         letter_plus()
+        btn_click("+")
 
       # MINUS
    if (x > 136 and x < 195 and y > -124 and y < -67):
-        print("-")
+        #print("-", end=(" "))
         letter_minus()
+        btn_click("-")
 
       # MULTIPLY
    if (x > 136 and x < 195 and y > -197 and y < -137):
-        print("×")
+        #print("×", end=(" "))
         letter_multiply()
+        btn_click("*")
 
       # DIVIDE
    if (x > 136 and x < 195 and y > -265 and y < -207):
-        print("÷")
+        #print("÷", end=(" "))
         letter_divide()
+        btn_click("/")
 
-print("The numbers u have wrote till now are:")
+   if (x > 207 and x < 266 and y > -58 and y < -1): 
+        #print("sin", end=(" "))
+        letter_sin()
+        
+   if (x > 207 and x < 266 and y > -124 and y < -67): 
+        #print("sin", end=(" "))
+        letter_cos()
+
+   if (x > 207 and x < 266 and y > -197 and y < -137): 
+        #print("sin", end=(" "))
+        letter_tan()
+
+   
+
+print("Your Answer")
 
 def get_mouse_coords(x,y):
    print(x,y)
@@ -643,5 +898,4 @@ turtle.onscreenclick(check_button)
 #____________________________SCREEN TIME_____________________________#
 
 
-
-   
+turtle.mainloop()
